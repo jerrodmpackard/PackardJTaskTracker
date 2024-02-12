@@ -30,7 +30,7 @@ addTaskBtn.addEventListener("click", () => {
 const displayTasks = () => {
     let tasks = getLocalStorage();
 
-    let pName = document.createElement("p");
+    let pName = document.createElement("h1");
     let pDate = document.createElement("p");
     let pDescription = document.createElement("p");
     let pPriority = document.createElement("p");
@@ -43,13 +43,14 @@ const displayTasks = () => {
     pStatus.textContent = newObject.status;
 
     tasks.map(task => {
-        if(task.priority == "To-Do"){
+        console.log("Hello")
+        if (task.priority == "To-Do") {
             toDoColumn.append(pName);
             toDoColumn.append(pDate);
             toDoColumn.append(pDescription);
             toDoColumn.append(pPriority);
             toDoColumn.append(pStatus);
-        } else if(task.priority == "In Progress"){
+        } else if (task.priority == "In Progress") {
             inProgressColumn.append(pName);
             inProgressColumn.append(pDate);
             inProgressColumn.append(pDescription);

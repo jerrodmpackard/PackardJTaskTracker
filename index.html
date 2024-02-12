@@ -10,13 +10,16 @@
 </head>
 
 <body class="bg-gray-300">
+
+    <h1 class="text-7xl text-center py-4">Task Tracker</h1>
+
     <!-- New Task Modal -->
     <div>
         <!-- Modal toggle -->
         <div class="flex justify-center m-5">
             <button id="defaultModalButton" data-modal-target="defaultModal" data-modal-toggle="defaultModal"
                 class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                type="button">
+                type="">
                 Add Task
             </button>
         </div>
@@ -46,7 +49,7 @@
                         </button>
                     </div>
                     <!-- Modal body -->
-                    <form action="#">
+                    <div>
                         <div class="grid gap-4 mb-4 sm:grid-cols-2">
                             <div>
                                 <label for="taskName"
@@ -114,14 +117,14 @@
                             </svg>
                             Add new task
                         </button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Main Container -->
-    <div class="container mx-auto grid grid-cols-3 bg-gray-300">
+    <div class="container mx-auto grid grid-cols-3 bg-gray-300 pt-4">
 
         <!-- Column 1 -->
         <div class="bg-slate-500">
