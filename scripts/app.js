@@ -54,7 +54,6 @@ const displayTasks = () => {
         pPriority.textContent = `Priority: ${task.priority}`;
         pStatus.textContent = task.status;
 
-        console.log(task)
         if (task.status == "To-Do") {
             toDoColumn.append(pName);
             toDoColumn.append(pDescription);
