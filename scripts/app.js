@@ -10,10 +10,17 @@ let toDoColumn = document.getElementById('toDoColumn');
 let inProgressColumn = document.getElementById('inProgressColumn');
 let completedColumn = document.getElementById('completedColumn');
 
+let newObject = {
+    taskName: "",
+    date: "",
+    description: "",
+    priority: "",
+    status: ""
+}
 
 addTaskBtn.addEventListener("click", () => {
 
-    const newObject = {
+    newObject = {
         taskName: taskName.value,
         date: date.value,
         description: description.value,
@@ -30,44 +37,48 @@ addTaskBtn.addEventListener("click", () => {
 const displayTasks = () => {
     let tasks = getLocalStorage();
 
-    let pName = document.createElement("h1");
-    let pDate = document.createElement("p");
-    let pDescription = document.createElement("p");
-    let pPriority = document.createElement("p");
-    let pStatus = document.createElement("p");
-
-    pName.textContent = newObject.taskName;
-    pDate.textContent = newObject.date;
-    pDescription.textContent = newObject.description;
-    pPriority.textContent = newObject.priority;
-    pStatus.textContent = newObject.status;
+    toDoColumn.textContent = "";
+    inProgressColumn.textContent = "";
+    completedColumn.textContent = "";
 
     tasks.map(task => {
-        console.log("Hello")
-        if (task.priority == "To-Do") {
+        let pName = document.createElement("h1");
+        let pDate = document.createElement("p");
+        let pDescription = document.createElement("p");
+        let pPriority = document.createElement("p");
+        let pStatus = document.createElement("p");
+
+        pName.textContent = task.taskName;
+        pDescription.textContent = task.description;
+        pDate.textContent = `Due: ${task.date}`;
+        pPriority.textContent = `Priority: ${task.priority}`;
+        pStatus.textContent = task.status;
+
+        console.log(task)
+        if (task.status == "To-Do") {
             toDoColumn.append(pName);
-            toDoColumn.append(pDate);
             toDoColumn.append(pDescription);
+            toDoColumn.append(pDate);
             toDoColumn.append(pPriority);
-            toDoColumn.append(pStatus);
-        } else if (task.priority == "In Progress") {
+            // toDoColumn.append(pStatus);
+        } else if (task.status == "In Progress") {
             inProgressColumn.append(pName);
-            inProgressColumn.append(pDate);
             inProgressColumn.append(pDescription);
+            inProgressColumn.append(pDate);
             inProgressColumn.append(pPriority);
-            inProgressColumn.append(pStatus);
+            // inProgressColumn.append(pStatus);
         } else {
             completedColumn.append(pName);
-            completedColumn.append(pDate);
             completedColumn.append(pDescription);
+            completedColumn.append(pDate);
             completedColumn.append(pPriority);
-            completedColumn.append(pStatus);
+            // completedColumn.append(pStatus);
         }
     });
 
 }
 
-// displayTasks();
+displayTasks();
 
 // need to create 5 elements for each of the 5 info points and also 1 button
 // need to map through newObject.priority. need if statement to see where to create the element
